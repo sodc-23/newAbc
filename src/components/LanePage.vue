@@ -88,6 +88,17 @@
         </b-carousel-slide>
       </b-carousel>
     </div>
+
+    <div class="footer" style="padding: 15px;">
+      <masonry :cols="2" :gutter="50">
+        <div class="ft-left">
+          <star-rating></star-rating>
+        </div>
+        <div class="ft-right">
+          <b-button variant="primary" style="background: #6f3263 !important; color: #fff; border-radius: 30px; border: none; float: right; ">Request to Book</b-button>
+        </div>
+      </masonry>
+    </div>
   </div>
 </template>
 
@@ -95,19 +106,19 @@
 export default {
   name: "HelloWorld",
   data() {
-      return {
-        slide: 0,
-        sliding: null
-      }
+    return {
+      slide: 0,
+      sliding: null
+    };
+  },
+  methods: {
+    onSlideStart(slide) {
+      this.sliding = true;
     },
-    methods: {
-      onSlideStart(slide) {
-        this.sliding = true
-      },
-      onSlideEnd(slide) {
-        this.sliding = false
-      }
+    onSlideEnd(slide) {
+      this.sliding = false;
     }
+  }
 };
 </script>
 
