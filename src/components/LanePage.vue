@@ -154,7 +154,6 @@
           <b-tab title="Availability" style="display: inline-flex">I'm the last tab</b-tab>
         </b-tabs>
       </b-card>
-
     </div>
     
     <div class="banner-bot">
@@ -173,7 +172,7 @@
             <v-icon name="zap" style="width: 20px;"></v-icon> <span style="font-weight: bold">$123</span> <span style="margin-left: 7px; color: ccc;">avg/night</span>
           </div>
           <div class="reviews">
-            <star-rating star-size="25" rating="5" style="display: inline-block;"></star-rating>
+            <star-rating star-size="25px" rating="5" style="display: inline-block;"></star-rating>
             <span style="margin-top: 10px; margin-left: 7px;">Reviews</span>
           </div>
         </div>
