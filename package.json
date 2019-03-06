@@ -19,9 +19,11 @@
     "i": "^0.3.6",
     "npm": "^6.8.0",
     "vue": "^2.6.8",
+    "vue-icon": "^2.1.1",
     "vue-masonry-css": "^1.0.3",
     "vue-router": "^3.0.1",
-    "vue-star-rating": "^1.6.1"
+    "vue-star-rating": "^1.6.1",
+    "vue2-google-maps": "^0.10.6"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
