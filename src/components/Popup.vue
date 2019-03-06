@@ -4,11 +4,7 @@
 <template>
   <div class="popup">
     <b-button v-b-modal.modal1 style="margin: 30px;">Show modal</b-button>
-
-     <date-picker lang="en" v-model="time1" :first-day-of-week="1"></date-picker>
-    <date-picker lang="en" v-model="time2" type="datetime" :time-picker-options="timePickerOptions"></date-picker>
-    <date-picker lang="en" v-model="time3" range :shortcuts="shortcuts"></date-picker>
-    <date-picker lang="en" v-model="value"></date-picker>
+    
 
     <!-- Modal Component -->
     <b-modal id="modal1" title="" hide-header="true" hide-footer="true">
@@ -41,7 +37,26 @@
             <date-picker v-model="time3" lang="en" :first-day-of-week="1"></date-picker>
           </div> -->
 
-            <date-picker lang="en" v-model="time3" range :shortcuts="shortcuts" style="width: 430px !important;"></date-picker>
+           <template>
+        <div class="datepicker-trigger">
+        <input
+          type="text"
+          id="datepicker-trigger"
+          placeholder="Select dates"
+          :value="formatDates(dateOne, dateTwo)"
+        >
+
+        <AirbnbStyleDatepicker
+          :trigger-element-id="'datepicker-trigger'"
+          :mode="'range'"
+          :fullscreen-mobile="true"
+          :date-one="dateOne"
+          :date-two="dateTwo"
+          @date-one-selected="val => { dateOne = val }"
+          @date-two-selected="val => { dateTwo = val }"
+        />
+      </div>
+    </template>
 
           <div class="guests">
             <b-form-group
@@ -83,10 +98,10 @@
 
 
 <script>
-import DatePicker from 'vue2-datepicker'
- 
+import AirbnbStyleDatepicker from 'vue-airbnb-style-datepicker'
+
 export default {
-  components: { DatePicker },
+  components: { AirbnbStyleDatepicker },
   data() {
     return {
       time1: '',
@@ -121,12 +136,16 @@ export default {
 }
 </script> 
 <script>
+import format from 'date-fns/format'
+
 export default {
-  name: "HelloWorld",
   data(){
     return {
       slide: 0,
-      sliding: null
+      sliding: null,
+      dateOne: '',
+      dateTwo: '',
+      dateFormat: 'DD-MM-YYYY',
     }
   },
   methods: {
@@ -135,7 +154,35 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false
+    },
+    formatDates: function(dateOne, dateTwo) {
+      var formattedDates = ''
+      if (dateOne) {
+        formattedDates = format(dateOne, this.dateFormat)
+      }
+      if (dateTwo) {
+        formattedDates += ' - ' + format(dateTwo, this.dateFormat)
+      }
+
+      console.log(formattedDates);
+      return formattedDates
+    },
+
+    onClosed: function() {
+      var datesStr = this.formatDates(this.inputDateOne, this.inputDateTwo)
+      console.log('Dates Selected: ' + datesStr)
+      this.trigger = false
+    },
+    toggleAlign: function() {
+      this.alignRight = !this.alignRight
+    },
+    triggerDatepicker: function() {
+      this.trigger = !this.trigger
+    },
+    onMonthChange: function(dates) {
+      console.log('months changed', dates)
     }
+    
   }
 }
 </script>
