@@ -5,6 +5,11 @@
   <div class="popup">
     <b-button v-b-modal.modal1 style="margin: 30px;">Show modal</b-button>
 
+     <date-picker lang="en" v-model="time1" :first-day-of-week="1"></date-picker>
+    <date-picker lang="en" v-model="time2" type="datetime" :time-picker-options="timePickerOptions"></date-picker>
+    <date-picker lang="en" v-model="time3" range :shortcuts="shortcuts"></date-picker>
+    <date-picker lang="en" v-model="value"></date-picker>
+
     <!-- Modal Component -->
     <b-modal id="modal1" title="" hide-header="true" hide-footer="true">
       <div class="social">
@@ -29,12 +34,14 @@
         </div>
 
         <div class="pricing">
-          <div>
+          <!-- <div>
             <date-picker v-model="time3" lang="en" :first-day-of-week="1"></date-picker>
           </div>
           <div>
             <date-picker v-model="time3" lang="en" :first-day-of-week="1"></date-picker>
-          </div>
+          </div> -->
+
+            <date-picker lang="en" v-model="time3" range :shortcuts="shortcuts" style="width: 430px !important;"></date-picker>
 
           <div class="guests">
             <b-form-group
