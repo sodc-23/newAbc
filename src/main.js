@@ -12,11 +12,13 @@ import StarRating from 'vue-star-rating'
 import VueMasonry from 'vue-masonry-css'
 import feather from 'vue-icon'
 import * as VueGoogleMaps from 'vue2-google-maps'
+import DatePicker from 'vue2-datepicker'
 
 // css
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+Vue.use(DatePicker)
 Vue.use(BootstrapVue)
 Vue.use(VueMasonry)
 Vue.use(feather, {

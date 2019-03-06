@@ -1,6 +1,14 @@
+
+
+
 <template>
   <div class="popup">
     <b-button v-b-modal.modal1 style="margin: 30px;">Show modal</b-button>
+
+     <date-picker lang="en" v-model="time1" :first-day-of-week="1"></date-picker>
+    <date-picker lang="en" v-model="time2" type="datetime" :time-picker-options="timePickerOptions"></date-picker>
+    <date-picker lang="en" v-model="time3" range :shortcuts="shortcuts"></date-picker>
+    <date-picker lang="en" v-model="value"></date-picker>
 
     <!-- Modal Component -->
     <b-modal id="modal1" title="" hide-header="true" hide-footer="true">
@@ -27,10 +35,10 @@
 
         <div class="pricing">
           <div>
-            <b-form-input v-model="text1" type="date" placeholder="Check In" />
+            <date-picker v-model="time3" lang="en" :first-day-of-week="1"></date-picker>
           </div>
           <div>
-            <b-form-input v-model="text1" type="date" placeholder="Check Out" />
+            <date-picker v-model="time3" lang="en" :first-day-of-week="1"></date-picker>
           </div>
 
           <div class="guests">
@@ -71,6 +79,45 @@
   </div>
 </template>
 
+
+<script>
+import DatePicker from 'vue2-datepicker'
+ 
+export default {
+  components: { DatePicker },
+  data() {
+    return {
+      time1: '',
+      time2: '',
+      time3: '',
+      // custom lang
+      lang: {
+        days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        pickers: ['next 7 days', 'next 30 days', 'previous 7 days', 'previous 30 days'],
+        placeholder: {
+          date: 'Select Date',
+          dateRange: 'Select Date Range'
+        }
+      },
+      // custom range shortcuts
+      shortcuts: [
+        {
+          text: 'Today',
+          onClick: () => {
+            this.time3 = [ new Date(), new Date() ]
+          }
+        }
+      ],
+      timePickerOptions:{
+        start: '00:00',
+        step: '00:30',
+        end: '23:30'
+      }
+    }
+  }
+}
+</script> 
 <script>
 export default {
   name: "HelloWorld",
