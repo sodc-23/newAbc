@@ -109,7 +109,6 @@ export default {
 }
 </script>
 
-<<<<<<< HEAD
 <style scoped>
 .list-result{
   padding: 30px 0;
@@ -178,9 +177,4 @@ a {
 .mb-15{
   margin-bottom: 15px;
 }
-=======
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss">
-  @import '../assets/scss/search.scss';
->>>>>>> 2b421ee8ae9149c84d089fa49dd7ec6524f61461
 </style>

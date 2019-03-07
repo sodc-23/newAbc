@@ -42,7 +42,7 @@ Vue.use(feather, {
 })
 Vue.use(VueGoogleMaps, {
   load: {
-    key: 'AIzaSyCyjh1JsjGPSGJe_AwGRLvZ5NZExCnEKaY',
+    key: '',
     libraries: 'places'
   }
 })
