@@ -1,4 +1,3 @@
-/ * eslint-disable * /
 <template>
   <div id='app'>
     <router-view/>
@@ -9,7 +8,7 @@
 
 export default {
   name: 'App'
-};
+}
 </script>
 
 <style>

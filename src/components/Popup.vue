@@ -1,10 +1,11 @@
-
-
-
 <template>
   <div class="popup">
     <b-button v-b-modal.modal1 style="margin: 30px;">Show modal</b-button>
-    
+
+     <!-- <date-picker lang="en" v-model="time1" :first-day-of-week="1"></date-picker>
+    <date-picker lang="en" v-model="time2" type="datetime" :time-picker-options="timePickerOptions"></date-picker>
+    <date-picker lang="en" v-model="time3" range :shortcuts="shortcuts"></date-picker>
+    <date-picker lang="en" v-model="value"></date-picker> -->
 
     <!-- Modal Component -->
     <b-modal id="modal1" title="" hide-header="true" hide-footer="true">
@@ -37,26 +38,9 @@
             <date-picker v-model="time3" lang="en" :first-day-of-week="1"></date-picker>
           </div> -->
 
-           <template>
-        <div class="datepicker-trigger">
-        <input
-          type="text"
-          id="datepicker-trigger"
-          placeholder="Select dates"
-          :value="formatDates(dateOne, dateTwo)"
-        >
+            <!-- <date-picker lang="en" v-model="time3" range :shortcuts="shortcuts" style="width: 430px !important;"></date-picker> -->
 
-        <AirbnbStyleDatepicker
-          :trigger-element-id="'datepicker-trigger'"
-          :mode="'range'"
-          :fullscreen-mobile="true"
-          :date-one="dateOne"
-          :date-two="dateTwo"
-          @date-one-selected="val => { dateOne = val }"
-          @date-two-selected="val => { dateTwo = val }"
-        />
-      </div>
-    </template>
+          <HotelDatePicker DatePickerID="01" class="width-100 mb-15" />
 
           <div class="guests">
             <b-form-group
@@ -96,225 +80,59 @@
   </div>
 </template>
 
-
 <script>
-import AirbnbStyleDatepicker from 'vue-airbnb-style-datepicker'
-
+// eslint-disable no-new
+// eslint-disable
+// eslint-disable-next-line
 export default {
-  components: { AirbnbStyleDatepicker },
-  data() {
-    return {
-      time1: '',
-      time2: '',
-      time3: '',
-      // custom lang
-      lang: {
-        days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-        months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        pickers: ['next 7 days', 'next 30 days', 'previous 7 days', 'previous 30 days'],
-        placeholder: {
-          date: 'Select Date',
-          dateRange: 'Select Date Range'
-        }
-      },
-      // custom range shortcuts
-      shortcuts: [
-        {
-          text: 'Today',
-          onClick: () => {
-            this.time3 = [ new Date(), new Date() ]
-          }
-        }
-      ],
-      timePickerOptions:{
-        start: '00:00',
-        step: '00:30',
-        end: '23:30'
-      }
-    }
-  }
-}
-</script> 
-<script>
-import format from 'date-fns/format'
-
-export default {
-  data(){
+  data () {
     return {
       slide: 0,
       sliding: null,
       dateOne: '',
       dateTwo: '',
-      dateFormat: 'DD-MM-YYYY',
+      dateFormat: 'DD-MM-YYYY'
     }
   },
   methods: {
-    onSlideStart(slide) {
+    onSlideStart (slide) {
       this.sliding = true
     },
-    onSlideEnd(slide) {
+    onSlideEnd (slide) {
       this.sliding = false
     },
-    formatDates: function(dateOne, dateTwo) {
-      var formattedDates = ''
-      if (dateOne) {
-        formattedDates = format(dateOne, this.dateFormat)
-      }
-      if (dateTwo) {
-        formattedDates += ' - ' + format(dateTwo, this.dateFormat)
-      }
+    // formatDates: function (dateOne, dateTwo) {
+    //   var formattedDates = ''
+    //   if (dateOne) {
+    //     formattedDates = format(dateOne, this.dateFormat)
+    //   }
+    //   if (dateTwo) {
+    //     formattedDates += ' - ' + format(dateTwo, this.dateFormat)
+    //   }
 
-      console.log(formattedDates);
-      return formattedDates
-    },
+    //   console.log(formattedDates)
+    //   return formattedDates
+    // },
 
-    onClosed: function() {
+    onClosed: function () {
       var datesStr = this.formatDates(this.inputDateOne, this.inputDateTwo)
       console.log('Dates Selected: ' + datesStr)
       this.trigger = false
     },
-    toggleAlign: function() {
+    toggleAlign: function () {
       this.alignRight = !this.alignRight
     },
-    triggerDatepicker: function() {
+    triggerDatepicker: function () {
       this.trigger = !this.trigger
     },
-    onMonthChange: function(dates) {
+    onMonthChange: function (dates) {
       console.log('months changed', dates)
     }
-    
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-/* ============== */
-.social{
-  width: 100%;
-  text-align: right;
-}
-.btn-icon{
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: inline-block;
-  margin-left: 10px;
-}
-.content{
-  padding: 50px 30px;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  margin-top: 15px;
-}
-.ft-left{
-  text-align: left;
-}
-.ft-left svg{
-  width: 35px;
-  height: 35px;
-}
-.vue-star-rating-star{
-  width: 35px;
-  height: 35px;
-}
-.reviews{
-  width: 100%;
-  display: inline-block;
-  text-align: left;
-}
-#modal1 .modal-dialog{
-  width: 50% !important;
-  max-width: none !important;
-  overflow: hidden;
-  height: auto !important;
-  /* display: inline-block; */
-}
-.modal-dialog{
-  width: 50% !important;
-}
-.pricing{
-  text-align: center;
-  margin-top: 60px;
-}
-.pricing >div{
-  display: inline-block;
-  width: 200px;
-  margin: 15px;
-}
-.pricing .guests{
-  display: block;
-  width: 430px;
-  margin: 15px auto;
-  text-align: left;
-}
-.pricing .book-now{
-  display: block;
-  width: 430px;
-  margin: 15px auto;
-  text-align: left;
-  margin-top: 60px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-}
-.text-charged{
-  width: 100%;
-  color: #cc3b30;
-  text-align: right;
-}
-.content{
-  display: inline-block;
-  overflow: hidden;
-  width: 100%;
-}
-.pricing .user{
-  overflow: hidden;
-  text-align: left;
-  width: 430px;
-}
-.user .user-name{
-  height: 120px;
-  align-items: center;
-   display: -webkit-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-align-content: center;
-  align-content: center;
-  /* width: 180px; */
-  float: left;
-}
-.user .user-avatar{
-  width: 120px;
-  height: 120px;
-  float: left;
-  margin-right: 30px;
-}
-.footer{
-  width: 100%;
-  margin-top: 30px;
-  text-align: center;
-}
-.footer >p{
-  text-align: center;
-  width: 100%;
-  margin: 0;
-}
+<style lang="scss">
+  @import '../assets/scss/popup.scss';
 </style>
