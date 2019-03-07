@@ -40,13 +40,7 @@
 
             <!-- <date-picker lang="en" v-model="time3" range :shortcuts="shortcuts" style="width: 430px !important;"></date-picker> -->
 
-          <HotelDatePicker DatePickerID="01"
-            :minNights="minNights"
-            :maxNights="maxNights"
-            :disabledDaysOfWeek="disabledDaysOfWeek"
-            :showCloseButton="showCloseButton"
-            class="hotel-date-picker"
-            />
+          <HotelDatePicker DatePickerID="01" class="width-100 mb-15" />
 
           <div class="guests">
             <b-form-group
@@ -94,7 +88,10 @@ export default {
   data () {
     return {
       slide: 0,
-      sliding: null
+      sliding: null,
+      dateOne: '',
+      dateTwo: '',
+      dateFormat: 'DD-MM-YYYY'
     }
   },
   methods: {
@@ -103,6 +100,33 @@ export default {
     },
     onSlideEnd (slide) {
       this.sliding = false
+    },
+    // formatDates: function (dateOne, dateTwo) {
+    //   var formattedDates = ''
+    //   if (dateOne) {
+    //     formattedDates = format(dateOne, this.dateFormat)
+    //   }
+    //   if (dateTwo) {
+    //     formattedDates += ' - ' + format(dateTwo, this.dateFormat)
+    //   }
+
+    //   console.log(formattedDates)
+    //   return formattedDates
+    // },
+
+    onClosed: function () {
+      var datesStr = this.formatDates(this.inputDateOne, this.inputDateTwo)
+      console.log('Dates Selected: ' + datesStr)
+      this.trigger = false
+    },
+    toggleAlign: function () {
+      this.alignRight = !this.alignRight
+    },
+    triggerDatepicker: function () {
+      this.trigger = !this.trigger
+    },
+    onMonthChange: function (dates) {
+      console.log('months changed', dates)
     }
   }
 }

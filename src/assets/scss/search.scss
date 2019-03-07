@@ -40,10 +40,13 @@ a {
   width: 100%;
   overflow: hidden;
 }
+.act-search{
+  overflow: hidden;
+}
 .filter{
   padding: 60px 15px 60px 15px;
   background: #eaeaea;
-  overflow: hidden;
+  // overflow: hidden;
 }
 .filter-input{
   width: 100%;

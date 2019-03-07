@@ -1,6 +1,3 @@
-/ * eslint-disable * /
-/*eslint semi: "error"*/
-
 <template>
   <div class="hello">
     <div class="lanepage">
@@ -133,14 +130,6 @@
                   map-type-id="terrain"
                   style="width: 900px; height: 700px"
                 >
-                  <GmapMarker
-                    :key="index"
-                    v-for="(m, index) in markers"
-                    :position="m.position"
-                    :clickable="true"
-                    :draggable="true"
-                    @click="center=m.position"
-                  />
                 </GmapMap>
               </div>
             </masonry>
@@ -172,7 +161,7 @@
             <v-icon name="zap" style="width: 20px;"></v-icon> <span style="font-weight: bold">$123</span> <span style="margin-left: 7px; color: ccc;">avg/night</span>
           </div>
           <div class="reviews">
-            <star-rating star-size="25px" rating="5" style="display: inline-block;"></star-rating>
+            <star-rating style="display: inline-block;"></star-rating>
             <span style="margin-top: 10px; margin-left: 7px;">Reviews</span>
           </div>
         </div>
@@ -195,7 +184,8 @@ export default {
   data () {
     return {
       slide: 0,
-      sliding: null
+      sliding: null,
+      tabIndex: 1
     }
   },
   methods: {

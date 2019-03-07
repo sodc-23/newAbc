@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import LanePage from '@/components/LanePage'
+import Home from '@/components/Home'
 import Popup from '@/components/Popup'
 import Search from '@/components/Search'
 import Demo from '@/components/Demo'
@@ -11,8 +11,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'LanePage',
-      component: LanePage
+      name: 'Home',
+      component: Home
     },
     {
       path: '/demo',
