@@ -13,11 +13,13 @@ import VueMasonry from 'vue-masonry-css'
 import feather from 'vue-icon'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import DatePicker from 'vue2-datepicker'
+import HotelDatePicker from 'vue-hotel-datepicker'
 
 // css
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+Vue.use(HotelDatePicker)
 Vue.use(DatePicker)
 Vue.use(BootstrapVue)
 Vue.use(VueMasonry)
@@ -37,10 +39,7 @@ Vue.use(feather, {
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyCyjh1JsjGPSGJe_AwGRLvZ5NZExCnEKaY',
-    libraries: 'places' // This is required if you use the Autocomplete plugin
-    // OR: libraries: 'places,drawing'
-    // OR: libraries: 'places,drawing,visualization'
-    // (as you require)
+    libraries: 'places'
   }
 })
 
@@ -51,6 +50,8 @@ library.add(faCoffee)
 Vue.component('star-rating', StarRating)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+Vue.component('HotelDatePicker', HotelDatePicker)
 
 Vue.config.productionTip = false
 

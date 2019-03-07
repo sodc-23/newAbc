@@ -155,7 +155,7 @@
         </b-tabs>
       </b-card>
     </div>
-    
+
     <div class="banner-bot">
       <b-button>Premier Partner</b-button>
       <b-button>Instant Confirmation</b-button>
@@ -188,19 +188,21 @@
 </template>
 
 <script>
+// eslint-disable no-new
+// eslint-disable
+// eslint-disable-next-line
 export default {
-  name: "HelloWorld",
-  data(){
+  data () {
     return {
       slide: 0,
       sliding: null
     }
   },
   methods: {
-    onSlideStart(slide) {
+    onSlideStart (slide) {
       this.sliding = true
     },
-    onSlideEnd(slide) {
+    onSlideEnd (slide) {
       this.sliding = false
     }
   }
@@ -208,75 +210,6 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped  >
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-.navBar {
-  background: #6f3263 !important;
-}
-.card-header{
-  padding: 0 !important;
-}
-.card-header-tabs{
-  display: inline-flex;
-}
-.v-icon{
-  font-size: 24px;
-  width: 30px;
-}
-.banner-bot{
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  padding: 30px 15px;
-  border-bottom: 1px solid #ddd;
-}
-.banner-bot button{
-  display: inline-block;
-  margin: 0 15px;
-  color: #000;
-  background-color: rgba(210, 202, 202, 0.28);
-  border: none;
-}
-.contnet{
-  
-}
-.contnet .card-header-tabs{
-  display: inline-flex;
-}
-.footer{
-
-}
-.ft-left{
-  text-align: left;
-}
-.ft-left svg{
-  width: 35px;
-  height: 35px;
-}
-.vue-star-rating-star{
-  width: 35px;
-  height: 35px;
-}
-.reviews{
-  width: 100%;
-  display: inline-block;
-  text-align: left;
-}
-.fw-bold{
-  font-weight: bold;
-}
+<style lang="scss"  >
+  @import '../assets/scss/lanepage.scss';
 </style>
