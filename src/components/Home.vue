@@ -4,7 +4,7 @@
 <template>
   <div class="hello">
     <div class="lanepage">
-      <b-navbar class="navBar" toggleable="lg" type="dark" variant="info">
+      <b-navbar class="navBar" toggleable="lg" type="dark" >
         <b-navbar-toggle target="nav_collapse"/>
 
         <b-collapse is-nav id="nav_collapse">
@@ -19,25 +19,15 @@
             </b-nav-item-dropdown>
 
             <b-nav-item href="#">
-              <!-- <font-awesome-icon icon="coffee"/> -->
               <v-icon name="facebook" style="width: 25px;"></v-icon>
             </b-nav-item>
             <b-nav-item href="#">
-              <!-- <font-awesome-icon icon="coffee"/> -->
               <v-icon name="youtube" style="width: 25px;"></v-icon>
             </b-nav-item>
             <b-nav-item href="#">
-              <!-- <font-awesome-icon icon="coffee"/> -->
               <v-icon name="instagram" style="width: 25px;"></v-icon>
             </b-nav-item>
-
-            <!-- <b-nav-item-dropdown right>
-                <template slot="button-content">
-                  <em>User</em>
-                </template>
-                <b-dropdown-item href="#">Profile</b-dropdown-item>
-                <b-dropdown-item href="#">Signout</b-dropdown-item>
-            </b-nav-item-dropdown>-->
+           
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
@@ -95,88 +85,89 @@
       </b-carousel>
     </div>
 
-    <div class="contnet">
+    <div class="content">
       <b-card no-body>
         <b-tabs small card v-model="tabIndex">
-          <b-tab title="Overview"  style="display: inline-flex">
-            <masonry :cols="2" :gutter="50">
-              <div class="overview-left" style="text-align: left;">
+          <b-tab title="Overview">
+            <div class="row">
+              <div class="col-sm-6">
                 <p>
                   <v-icon name="home"></v-icon>
-                  <span style="margin-left: 10px;">Cottage</span>
+                  <span class="mgl-15">Cottage</span>
                 </p>
                 <p>
                   <v-icon name="users"></v-icon>
-                  <span style="margin-left: 10px;">People: 2</span>
+                  <span class="mgl-15">People: 2</span>
                 </p>
                 <p>
                   <v-icon name="sidebar"></v-icon>
-                  <span style="margin-left: 10px;">Bedrooms: 3</span>
+                  <span class="mgl-15">Bedrooms: 3</span>
                 </p>
                 <p>
                   <v-icon name="target"></v-icon>
-                  <span style="margin-left: 10px;">Bathrooms: 3</span>
+                  <span class="mgl-15">Bathrooms: 3</span>
                 </p>
                 <p>
                   <v-icon name="voicemail"></v-icon>
-                  <span style="margin-left: 10px;">Separate WCs: 1</span>
+                  <span class="mgl-15">Separate WCs: 1</span>
                 </p>
                 <p>
                   <v-icon name="watch"></v-icon>
-                  <span style="margin-left: 10px;">Min. Stay: 7 nights</span>
+                  <span class="mgl-15" >Min. Stay: 7 nights</span>
                 </p>
               </div>
-              <div class="overview-right">
+              
+              <div class="col-sm-6">
                 <GmapMap
-                  :center="{lat:10, lng:10}"
+                  :center="{lat:18, lng:18}"
                   :zoom="7"
                   map-type-id="terrain"
-                  style="width: 900px; height: 700px"
+
                 >
                 
                 </GmapMap>
               </div>
-            </masonry>
+            </div>
           </b-tab>
-          <b-tab title="Facilities" style="display: inline-flex">
+          <b-tab title="Facilities">
             I'm the second tab
             <b-card>I'm the card in tab</b-card>
           </b-tab>
-          <b-tab title="Reviews" style="display: inline-flex">I'm the last tab</b-tab>
-          <b-tab title="Location" style="display: inline-flex">I'm the last tab</b-tab>
-          <b-tab title="Availability" style="display: inline-flex">I'm the last tab</b-tab>
+          <b-tab title="Reviews" >I'm the last tab</b-tab>
+          <b-tab title="Location" >I'm the last tab</b-tab>
+          <b-tab title="Availability" >I'm the last tab</b-tab>
         </b-tabs>
       </b-card>
     </div>
     
-    <div class="banner-bot">
-      <b-button>Premier Partner</b-button>
-      <b-button>Instant Confirmation</b-button>
-      <b-button>Good for families</b-button>
-      <b-button>Hot Tub</b-button>
-      <b-button>Pool</b-button>
-      <b-button>No Smoking</b-button>
+    <div class="footer-menu">
+      <a href="#">Premier Partner</a>
+      <a href="#">Instant Confirmation</a>
+      <a href="#">Good for families</a>
+      <a href="#">Hot Tub</a>
+      <a href="#">Pool</a>
+      <a href="#">No Smoking</a>
     </div>
 
-    <div class="footer" style="padding: 15px;">
-      <masonry :cols="2" :gutter="50">
-        <div class="ft-left">
-          <div class="ft-price">
-            <v-icon name="zap" style="width: 20px;"></v-icon> <span style="font-weight: bold">$123</span> <span style="margin-left: 7px; color: ccc;">avg/night</span>
+    <footer>
+      <div class="row align-items-center">
+        <div class="col-sm-6">
+          <div class="price">
+            <v-icon name="zap"></v-icon> <b>$123</b> <span>avg/night</span>
           </div>
           <div class="reviews">
-            <star-rating style="display: inline-block;"></star-rating>
-            <span style="margin-top: 10px; margin-left: 7px;">Reviews</span>
+            <star-rating :star-size="18" :rating="rating" :rounded-corners="true"></star-rating>
           </div>
         </div>
-        <div class="ft-right">
-          <b-button
-            variant="primary"
-            style="background: #6f3263 !important; color: #fff; border-radius: 30px; border: none; float: right; padding: 15px 30px; border-radius: 30px; margin-top: 12px;"
-          >Request to Book</b-button>
+        <div class="col-sm-6">
+          <div class="d-flex flex-row-reverse">
+            <b-button
+              variant="primary" class="btn-custom1"
+            >Request to Book</b-button>
+          </div>
         </div>
-      </masonry>
-    </div>
+      </div>      
+    </footer>
   </div>
 </template>
 
@@ -187,6 +178,7 @@ export default {
       slide: 0,
       sliding: null,
       tabIndex: 1,
+      rating: 4,
     }
   },
   methods: {
@@ -195,81 +187,24 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false
-    }
+    },
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped  >
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-.navBar {
-  background: #6f3263 !important;
-}
-.card-header{
-  padding: 0 !important;
-}
-.card-header-tabs{
-  display: inline-flex;
-}
+<style lang="scss"  scoped>
 .v-icon{
   font-size: 24px;
   width: 30px;
 }
-.banner-bot{
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  padding: 30px 15px;
-  border-bottom: 1px solid #ddd;
-}
-.banner-bot button{
-  display: inline-block;
-  margin: 0 15px;
-  color: #000;
-  background-color: rgba(210, 202, 202, 0.28);
-  border: none;
-}
-.contnet{
-  
-}
-.contnet .card-header-tabs{
-  display: inline-flex;
-}
-.footer{
 
-}
-.ft-left{
-  text-align: left;
-}
-.ft-left svg{
-  width: 35px;
-  height: 35px;
-}
-.vue-star-rating-star{
-  width: 35px;
-  height: 35px;
-}
-.reviews{
-  width: 100%;
-  display: inline-block;
-  text-align: left;
-}
-.fw-bold{
-  font-weight: bold;
+@media (max-width: 768px) {
+  footer {
+    .d-flex {
+      margin-top: 15px;
+      display: block!important;
+    }
+  }
 }
 </style>

@@ -1,3 +1,95 @@
-.navbar-dark .navbar-nav .nav-link{
-  color: red !important;
+.navBar {
+  background: #6f3263 !important;
+}
+
+body {
+  .mgl-15 {
+    margin-left: 15px;
+  }
+}
+
+.content {
+  .card-header{
+    padding-top: 30px;
+    background: #fff;
+    border-bottom: 0;
+
+    .card-header-tabs{
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    .nav-tabs a {
+      color: #2c3e50!important;
+      font-size: 1rem;
+    }
+
+    .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+      border-color: #fff;
+      border-bottom: 2px solid #6f3263;
+    }
+
+  }
+
+  .vue-map-container {
+    min-height: 300px;
+    width: 100%;
+  }
+
+  .card-body {
+    padding: 15px;
+  }
+  
+}
+
+.footer-menu {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+
+  @media (min-width: 769px) {    
+    justify-content: space-evenly;
+    flex-direction: row;
+  }
+  
+  a {
+    padding: 15px;
+    color: #000;
+  }
+}
+
+footer {
+  padding:15px 15px;
+}
+
+.reviews {
+  display: flex;
+  align-items: center;
+
+  .vue-star-rating {
+    > span {
+      margin-left: 5px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    .vue-star-rating-rating-text:after {
+      display: inline-block;
+      content: "Reviews";
+      margin-left: 5px;
+    }
+  }
+}
+
+.btn-custom1 {
+  background: #6f3263 !important;
+  color: #fff;
+  border-radius: 30px;
+  border: none; 
+  padding: 15px 30px;
+  border-radius: 30px;
 }
