@@ -40,7 +40,7 @@ Vue.use(feather, {
 })
 Vue.use(VueGoogleMaps, {
   load: {
-    key: 'AIzaSyCyjh1JsjGPSGJe_AwGRLvZ5NZExCnEKaY',
+    key: '',
     libraries: 'places' // This is required if you use the Autocomplete plugin
     // OR: libraries: 'places,drawing'
     // OR: libraries: 'places,drawing,visualization'
