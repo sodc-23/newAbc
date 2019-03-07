@@ -1,3 +1,6 @@
+/ * eslint-disable * /
+/*eslint semi: "error"*/
+
 <template>
   <div class="hello">
     <div class="lanepage">
@@ -121,6 +124,7 @@
                   map-type-id="terrain"
 
                 >
+                
                 </GmapMap>
               </div>
             </div>
@@ -135,7 +139,6 @@
         </b-tabs>
       </b-card>
     </div>
-<<<<<<< HEAD
     
     <div class="footer-menu">
       <a href="#">Premier Partner</a>
@@ -144,16 +147,6 @@
       <a href="#">Hot Tub</a>
       <a href="#">Pool</a>
       <a href="#">No Smoking</a>
-=======
-
-    <div class="banner-bot">
-      <b-button>Premier Partner</b-button>
-      <b-button>Instant Confirmation</b-button>
-      <b-button>Good for families</b-button>
-      <b-button>Hot Tub</b-button>
-      <b-button>Pool</b-button>
-      <b-button>No Smoking</b-button>
->>>>>>> 2b421ee8ae9149c84d089fa49dd7ec6524f61461
     </div>
 
     <footer>
@@ -179,27 +172,20 @@
 </template>
 
 <script>
-// eslint-disable no-new
-// eslint-disable
-// eslint-disable-next-line
 export default {
-  data () {
+  data(){
     return {
       slide: 0,
       sliding: null,
-<<<<<<< HEAD
       tabIndex: 1,
       rating: 4,
-=======
-      tabIndex: 1
->>>>>>> 2b421ee8ae9149c84d089fa49dd7ec6524f61461
     }
   },
   methods: {
-    onSlideStart (slide) {
+    onSlideStart(slide) {
       this.sliding = true
     },
-    onSlideEnd (slide) {
+    onSlideEnd(slide) {
       this.sliding = false
     },
   }
@@ -207,7 +193,6 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<<<<<<< HEAD
 <style lang="scss"  scoped>
 .v-icon{
   font-size: 24px;
@@ -222,8 +207,4 @@ export default {
     }
   }
 }
-=======
-<style lang="scss"  >
-  @import '../assets/scss/lanepage.scss';
->>>>>>> 2b421ee8ae9149c84d089fa49dd7ec6524f61461
 </style>
