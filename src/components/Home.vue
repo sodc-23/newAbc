@@ -1,40 +1,38 @@
-/ * eslint-disable * /
-/*eslint semi: "error"*/
-
 <template>
   <div class="hello">
-    <div class="lanepage">
+    <header>
       <b-navbar class="navBar" toggleable="lg" type="dark" >
         <b-navbar-toggle target="nav_collapse"/>
 
         <b-collapse is-nav id="nav_collapse">
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
-            <b-nav-item class="active fw-bold" href="#">HOME</b-nav-item>
-            <b-nav-item href="#" class="fw-bold">REGISTER</b-nav-item>
-
-            <b-nav-item-dropdown class="fw-bold" text="LOGIN" right>
+            <b-nav-item class="active fw-bold" href="/">HOME</b-nav-item>
+            <!-- <b-nav-item class="active fw-bold" href="#">Search</b-nav-item> -->
+            <router-link tag="li" to="/search" class="nav-item">
+              <a class="nav-link">SEARCH</a>
+            </router-link>
+            <!-- <b-nav-item-dropdown class="fw-bold" text="LOGIN" right>
               <b-dropdown-item href="#">RU</b-dropdown-item>
               <b-dropdown-item href="#">FA</b-dropdown-item>
-            </b-nav-item-dropdown>
+            </b-nav-item-dropdown> -->
 
             <b-nav-item href="#">
-              <v-icon name="facebook" style="width: 25px;"></v-icon>
+              <v-icon name="facebook" ></v-icon>
             </b-nav-item>
             <b-nav-item href="#">
-              <v-icon name="youtube" style="width: 25px;"></v-icon>
+              <v-icon name="youtube" ></v-icon>
             </b-nav-item>
             <b-nav-item href="#">
-              <v-icon name="instagram" style="width: 25px;"></v-icon>
+              <v-icon name="instagram" ></v-icon>
             </b-nav-item>
-           
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
-    </div>
+    </header>
 
-    <div class="sileder">
-      <b-carousel
+    <div class="slider">
+      <!--<b-carousel
         id="carousel1"
         style="text-shadow: 1px 1px 2px #333;"
         controls
@@ -47,23 +45,18 @@
         @sliding-start="onSlideStart"
         @sliding-end="onSlideEnd"
       >
-        <!-- Text slides with image -->
         <b-carousel-slide
           caption="First slide"
           text="Nulla vitae elit libero, a pharetra augue mollis interdum."
           img-src="https://picsum.photos/1024/480/?image=52"
         />
 
-        <!-- Slides with custom text -->
         <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
           <h1>Hello world!</h1>
         </b-carousel-slide>
 
-        <!-- Slides with image only -->
         <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58"/>
 
-        <!-- Slides with img slot -->
-        <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
         <b-carousel-slide>
           <img
             slot="img"
@@ -75,7 +68,6 @@
           >
         </b-carousel-slide>
 
-        <!-- Slide with blank fluid image to maintain slide aspect ratio -->
         <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
@@ -83,6 +75,19 @@
           </p>
         </b-carousel-slide>
       </b-carousel>
+      <!-->
+        <carousel  :autoplay="true" :nav="false" :responsive="{0:{items:1,nav:false},992:{items:3,nav:false}}">
+          <template slot="prev"><v-icon  name="chevron-left" /></template>
+          <img src="https://picsum.photos/1024/480/?image=55">
+
+          <img src="https://picsum.photos/1024/480/?image=56">
+
+          <img src="https://picsum.photos/1024/480/?image=57">
+
+          <img src="https://picsum.photos/1024/480/?image=58">
+
+          <template slot="next"><v-icon  name="chevron-right" /></template>
+      </carousel>
     </div>
 
     <div class="content">
@@ -116,15 +121,12 @@
                   <span class="mgl-15" >Min. Stay: 7 nights</span>
                 </p>
               </div>
-              
               <div class="col-sm-6">
                 <GmapMap
                   :center="{lat:18, lng:18}"
                   :zoom="7"
                   map-type-id="terrain"
-
                 >
-                
                 </GmapMap>
               </div>
             </div>
@@ -139,7 +141,7 @@
         </b-tabs>
       </b-card>
     </div>
-    
+
     <div class="footer-menu">
       <a href="#">Premier Partner</a>
       <a href="#">Instant Confirmation</a>
@@ -153,7 +155,7 @@
       <div class="row align-items-center">
         <div class="col-sm-6">
           <div class="price">
-            <v-icon name="zap"></v-icon> <b>$123</b> <span>avg/night</span>
+            <v-icon name="zap"></v-icon> <b>£123</b> <span>avg/night</span>
           </div>
           <div class="reviews">
             <star-rating :star-size="18" :rating="rating" :rounded-corners="true"></star-rating>
@@ -162,32 +164,42 @@
         <div class="col-sm-6">
           <div class="d-flex flex-row-reverse">
             <b-button
-              variant="primary" class="btn-custom1"
+              variant="primary" class="btn-custom1" v-b-modal.modal1
             >Request to Book</b-button>
+            <Popup></Popup>
           </div>
         </div>
-      </div>      
+      </div>
     </footer>
   </div>
 </template>
 
 <script>
+import Popup from '@/components/Popup'
+import carousel from 'vue-owl-carousel'
+
+// eslint-disable no-new
+// eslint-disable
+// eslint-disable-next-line
 export default {
-  data(){
+  components: {
+    Popup, carousel
+  },
+  data () {
     return {
       slide: 0,
       sliding: null,
       tabIndex: 1,
-      rating: 4,
+      rating: 4
     }
   },
   methods: {
-    onSlideStart(slide) {
+    onSlideStart (slide) {
       this.sliding = true
     },
-    onSlideEnd(slide) {
+    onSlideEnd (slide) {
       this.sliding = false
-    },
+    }
   }
 }
 </script>

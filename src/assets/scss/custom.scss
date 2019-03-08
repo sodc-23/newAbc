@@ -6,6 +6,44 @@ body {
   .mgl-15 {
     margin-left: 15px;
   }
+
+  .datepicker__input {
+    font-size: 16px;
+  }
+
+  .slider {
+    position: relative;
+    
+    .owl-theme .owl-dots {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    span[id^=carousel] {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      z-index: 999;
+
+      > svg {
+        stroke: #fff;
+      }
+    }
+
+    span[id^=carousel_prev] {
+      left: 15px;
+    }
+
+    span[id^=carousel_next] {
+      right: 15px;
+    }
+  }
+}
+
+.v-icon {
+  width: 24px;
 }
 
 .content {
@@ -92,4 +130,29 @@ footer {
   border: none; 
   padding: 15px 30px;
   border-radius: 30px;
+}
+
+.btn-custom2 {
+  box-sizing: border-box;
+  background: #0249a5 !important; color: #fff; border-radius: 30px; border: none; padding: 15px 30px; border-radius: 30px;
+}
+
+svg {
+  .cls-1 {
+    fill: #cce1f8;
+  }
+
+  .cls-2 {
+    fill: none;
+    stroke: #364353;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content .card-header .nav-tabs a {
+    padding: 0 5px;
+  }
 }

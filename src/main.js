@@ -5,28 +5,22 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import BootstrapVue from 'bootstrap-vue'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
 import StarRating from 'vue-star-rating'
-import VueMasonry from 'vue-masonry-css'
 import feather from 'vue-icon'
 import * as VueGoogleMaps from 'vue2-google-maps'
-import DatePicker from 'vue2-datepicker'
 import HotelDatePicker from 'vue-hotel-datepicker'
-
+import { store } from './store/store'
+import carousel from 'vue-owl-carousel'
 // css
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-import 'vue-airbnb-style-datepicker/dist/vue-airbnb-style-datepicker.min.css'
+import 'owl.carousel/dist/assets/owl.carousel.min.css'
 import './assets/scss/custom.scss'
 
-const datepickerOptions = {}
-
 Vue.use(HotelDatePicker)
-Vue.use(DatePicker)
+Vue.use(carousel)
 Vue.use(BootstrapVue)
-Vue.use(VueMasonry)
 Vue.use(feather, {
   name: 'v-icon',
   props: {
@@ -48,12 +42,12 @@ Vue.use(VueGoogleMaps, {
 })
 
 // fortawesome
-library.add(faCoffee)
+// library.add(faCoffee)
 
 // rating
 Vue.component('star-rating', StarRating)
 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+// Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.component('HotelDatePicker', HotelDatePicker)
 
@@ -64,5 +58,6 @@ new Vue({
   el: '#app',
   router,
   components: { App, StarRating },
-  template: '<App/>'
+  template: '<App/>',
+  store
 })

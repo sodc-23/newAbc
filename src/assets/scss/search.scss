@@ -1,70 +1,92 @@
-.list-result{
-  padding: 30px 0;
-}
-.result-item{
-  padding: 15px;
-  width: 100%;
-  display: inline-block;
-  overflow: hidden;
-}
-.item-left{
-  width: 60px;
-  float: left;
-}
-.item-right{
-  float: left;
-}
-.item-right h3{
-  font-size: 14px;
-  font-weight: bold;
-}
-.item-right p{
-  margin: 0;
-  font-size: 13px;
-}
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 .search{
+  .filter{
+    padding: 60px 15px 60px 15px;
+    background: url('~@/assets/img/bg.jpg') no-repeat center center;
+    background-size: cover;
+  }
+
+  .filter-form {
+    padding: 15px 15px 0;
+    border-radius: 5px;
+    
+    .datepicker__wrapper {
+      border-radius: 5px;
+      display: block;
+
+      .datepicker__dummy-wrapper {
+        border-radius: 5px;
+      }
+
+      .datepicker__input {
+        padding: 0 15px;
+      }
+    }
+
+    .form-control {
+      padding: 0 10px;
+      height: 48px;
+      line-height: 46px;
+    }
+
+    .btn-custom2 {
+      padding: 0 15px;
+      line-height: 48px;
+    }
+  }
+
+  .filter-alert {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,.08);
+  }
+}
+
+.bg-white-gray {
+  background: rgba(0,0,0,.2);
+}
+
+.info-section {
+  padding: 50px 15px;
   width: 100%;
-  overflow: hidden;
-}
-.act-search{
-  overflow: hidden;
-}
-.filter{
-  padding: 60px 15px 60px 15px;
-  background: #eaeaea;
-  // overflow: hidden;
-}
-.filter-input{
-  width: 100%;
-  /* overflow: hidden; */
-}
-.width-100{
-  width: 100%;
-}
-.width-50-l{
-  width: 49%;
-  /* margin-right: 2%; */
-  float: left;
-}
-.width-50-r{
-  width: 49%;
-  /* margin-left: 2%; */
-  float: right;
-}
-.mb-15{
-  margin-bottom: 15px;
+  margin: 0 auto;
+  @media (min-width: 992px) {
+    max-width: 80%;    
+  }
+
+  .item {
+    margin-bottom: 30px;
+
+    .v-icon {
+      margin-bottom: 15px;
+      height: 30px;
+      width: 30px
+    }
+
+    .item-content {
+      h3 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        margin: 0;     
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 22px;
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 991px) {
+      display: flex;
+      align-items: center;
+
+      .v-icon {
+        margin-bottom: 0;
+        margin-right: 15px;
+      }
+    }
+  }
 }

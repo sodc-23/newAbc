@@ -1,0 +1,216 @@
+.list-view{
+  padding: 0 0;
+
+  header {
+    padding-bottom: 60px;
+  }
+
+  .filter{
+    width: 100%;
+    padding: 15px;
+    background: #f8f8f8;
+    .filter-ctn{
+      padding: 15px;
+      background: #fff;
+      border-radius: 10px;
+      .location{
+        position: relative;
+        button{
+          background: none;
+          border: none;
+          color: #000;
+          position: absolute;
+          left: 5px;
+          top: 5px;
+          padding: 0;
+          .icon-search{
+            width: 20px;
+          }
+        }
+        input{
+          border: none;
+          border-bottom: 1px solid #ddd;
+          margin-bottom: 10px;
+          border-radius: 0;
+          width: 100%;
+          padding-left: 35px;
+        }
+      }
+      .guests{
+        position: relative;
+        margin-top: 15px;
+        .icon-users{
+          position: absolute;
+          width: 20px;
+          left: 5px;
+          top: 5px;
+        }
+        input{
+          border: none;
+          border-bottom: 1px solid #ddd;
+          margin-bottom: 10px;
+          border-radius: 0;
+          width: 100%;
+          padding-left: 35px;
+        }
+      }
+      .datepicker__dummy-wrapper{
+        border: none;
+        border-bottom: 1px solid #ddd;
+      }
+    }
+  }
+  .tabs-show{
+    .tabs{
+      div{
+        overflow: hidden;
+        text-align: center;
+      }
+      .tab-content{
+        text-align: left;
+        width: 100%;
+        margin: 0 auto;
+        div{
+          text-align: left;
+        }
+        .alert-info{
+          background: #fff;
+          border-color: #ddd;
+          color: #333;
+          p{
+            display: inline-block;
+            margin-left: 7px;
+          }
+        }
+      }
+    }
+    .nav-tabs{
+      border: none;
+      display: inline-flex !important;
+      margin: 0 auto;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+      width: 100%;
+      padding: 15px;
+      .nav-item{
+        width: 50%;
+        a{
+          border: none;
+          color: #000;
+        }
+        &:first-child{
+          a{
+            border-right: 1px solid #ddd;
+          }
+        }
+      }
+    }
+  }
+  .list-ctn{
+    .list-item{
+      width: 100%;
+      overflow: hidden;
+      padding-bottom: 15px;
+      border-bottom: 4px dashed #ddd;
+      margin-bottom: 15px;
+      &:first-child{
+        border-top: 4px dashed #ddd;
+        padding-top: 15px;
+        margin-top: 15px;
+      }
+      &:last-child{
+        border-bottom: none;
+      }
+      .item-image{
+        width: 30%;
+        float: left;
+        img{
+          width: 100%;
+          height: 240px;
+        }
+      }
+      .item-info{
+        float: left;
+        width: 70%;
+        .info-product{
+          padding: 15px;
+          background: #fff;
+          .title{
+            margin-bottom: 7px;
+            svg{
+              width: 20px;
+            }
+            span{
+              font-size: 13px;
+               color: #666;
+            }
+          }
+          h3{
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 7px;
+          }
+          .address{
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 5px;
+          }
+          .location{
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 5px;
+            svg{
+              width: 15px;
+              color: #ff9800;
+            }
+          }
+          .chips{
+            font-weight: normal;
+            .badge{
+              margin-right: 7px;
+              font-weight: normal;
+            }
+          }
+        }
+        .info-price{
+          background: #f8f8f8f8;
+          padding: 15px;
+          overflow: hidden;
+          h3{
+            color: green;
+            font-size: 16px;
+            margin-bottom: 7px;
+          }
+          .price-review{
+            width: 100%;
+            p{
+              width: 60%;
+              float: left;
+              margin: 0;
+              font-size: 13px;
+              strong{
+                font-size: 18px;
+              }
+            }
+            .ratings{
+              width: 40%;
+              float: right;
+              text-align: right;
+              svg{
+                width: 20px;
+                height: 20px;
+              }
+              .vue-star-rating-rating-text{
+                display: none;
+              }
+              .vue-star-rating{
+                display: inline-block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
