@@ -50,7 +50,7 @@
           <b-tab title="Filter" active>
             <b-alert show dismissible>
               <v-icon name="clock" style="width: 40px;"></v-icon>
-              <p><strong>Hurry up! </strong> Only 17% of Cardiff properties are left for your dates.</p>
+              <span><b>Hurry up! </b> Only 17% of Cardiff properties are left for your dates.</span>
             </b-alert>
           </b-tab>
           <b-tab title="Map">I'm the second tab content</b-tab>
@@ -77,10 +77,21 @@
               </div>
             </div>
             <div class="info-price">
-              <h3>Exceptional! {{ item.exceptional }}</h3>
+              <div class="price-part">
+                <h3>
+                  <template v-if="item.point > 4">
+                    Exceptional!
+                  </template>
+                  <template v-else>
+                    Normal
+                  </template>
+                  {{ item.point }} / 5
+                </h3>
+                <span><strong>£{{ item.price }}</strong> per night</span>
+              </div>
               <div class="price-review">
-                <p><strong>{{ item.price }}</strong> per night</p>
-                <star-rating class="ratings" :rating="item.rating" style="display: inline-block;"></star-rating>
+                <h3>{{ item.membership}}</h3>
+                <star-rating class="ratings" :rating="item.rating" :star-size="14" :read-only="true" inactive-color="#d3d8de" active-color="#000"></star-rating><span class="review-count">(78)</span>
               </div>
             </div>
           </div>
@@ -110,9 +121,10 @@ export default {
           address: 'Cabin',
           location: '12.4 km to Cardiff centre',
           cancellations: ['Free Cancellation', 'xxx'],
-          exceptional: '1/5',
+          point: 1,
           price: 12,
-          rating: 2
+          rating: 2,
+          membership: 'Premier'
         },
         {
           image: 'https://picsum.photos/1024/480/?image=52',
@@ -121,9 +133,10 @@ export default {
           address: 'Cabin - 1BR - 1BA -Sleep 2',
           location: '56.4 km to Cardiff centre',
           cancellations: ['Free Cancellation', 'xxx'],
-          exceptional: '5/5',
+          point: 5,
           price: 44,
-          rating: 4
+          rating: 4,
+          membership: 'free'
         },
         {
           image: 'https://picsum.photos/1024/480/?image=52',
@@ -132,9 +145,10 @@ export default {
           address: 'Cabin - 1BR - 1BA -Sleep 2',
           location: '16.4 km to Cardiff centre',
           cancellations: ['Free Cancellation', 'xxx'],
-          exceptional: '1/5',
+          point: 5,
           price: 56,
-          rating: 0
+          rating: 0,
+          membership: 'Premier'
         },
         {
           image: 'https://picsum.photos/1024/480/?image=52',
@@ -143,31 +157,10 @@ export default {
           address: 'Cabin - 1BR - 1BA -Sleep 2',
           location: '16.4 km to Cardiff centre',
           cancellations: ['Free Cancellation', 'xxx'],
-          exceptional: '1/5',
+          point: 5,
           price: 56,
-          rating: 0
-        },
-        {
-          image: 'https://picsum.photos/1024/480/?image=52',
-          times: 'Viewed 48 times in the last 48 hours...',
-          title: '"Pinelodge - SELF CATERING LODGE - LLANTRAISANT ...',
-          address: 'Cabin - 1BR - 1BA -Sleep 2',
-          location: '16.4 km to Cardiff centre',
-          cancellations: ['Free Cancellation', 'xxx'],
-          exceptional: '1/5',
-          price: 56,
-          rating: 0
-        },
-        {
-          image: 'https://picsum.photos/1024/480/?image=52',
-          times: 'Viewed 48 times in the last 48 hours...',
-          title: '"Pinelodge - SELF CATERING LODGE - LLANTRAISANT ...',
-          address: 'Cabin - 1BR - 1BA -Sleep 2',
-          location: '16.4 km to Cardiff centre',
-          cancellations: ['Free Cancellation', 'xxx'],
-          exceptional: '1/5',
-          price: 56,
-          rating: 0
+          rating: 0,
+          membership: 'Premier'
         }
       ]
     }
