@@ -60,6 +60,9 @@
         <div class="list-item" v-for="item in listData" :key="item">
           <div class="item-image">
             <img v-bind:src="item.image" alt="">
+            <div class="btn-icon">
+                <v-icon name="heart" ></v-icon>
+            </div>
           </div>
           <div class="item-info">
             <div class="info-product">
@@ -115,9 +118,9 @@ export default {
       name: '',
       listData: [
         {
-          image: 'https://picsum.photos/1024/480/?image=52',
-          times: 'Viewed 12 times in the last 48 hours...',
-          title: '"Pinelodge - SELF CATERING LODGE - LLANTRAISANT ...',
+          image: require('@/assets/img/room2.jpg'),
+          times: 'Viewed 12 times in the last 48 hours',
+          title: '"Pinelodge - SELF CATERING LODGE - LLANTRAISANT ',
           address: 'Cabin',
           location: '12.4 km to Cardiff centre',
           cancellations: ['Free Cancellation', 'xxx'],
@@ -127,21 +130,21 @@ export default {
           membership: 'Premier'
         },
         {
-          image: 'https://picsum.photos/1024/480/?image=52',
-          times: 'Viewed 44 times in the last 48 hours...',
-          title: '"Pinelodge - SELF CATERING LODGE - LLANTRAISANT ...',
+          image: require('@/assets/img/room3.jpg'),
+          times: 'Viewed 44 times in the last 48 hours',
+          title: '"Pinelodge - SELF CATERING LODGE - LLANTRAISANT ',
           address: 'Cabin - 1BR - 1BA -Sleep 2',
           location: '56.4 km to Cardiff centre',
-          cancellations: ['Free Cancellation', 'xxx'],
+          cancellations: ['£1.5', '£2'],
           point: 5,
           price: 44,
           rating: 4,
           membership: 'free'
         },
         {
-          image: 'https://picsum.photos/1024/480/?image=52',
-          times: 'Viewed 48 times in the last 48 hours...',
-          title: '"Pinelodge - SELF CATERING LODGE - LLANTRAISANT ...',
+          image: require('@/assets/img/room4.jpg'),
+          times: 'Viewed 48 times in the last 48 hours',
+          title: '"Pinelodge - SELF CATERING LODGE - LLANTRAISANT ',
           address: 'Cabin - 1BR - 1BA -Sleep 2',
           location: '16.4 km to Cardiff centre',
           cancellations: ['Free Cancellation', 'xxx'],
@@ -151,12 +154,12 @@ export default {
           membership: 'Premier'
         },
         {
-          image: 'https://picsum.photos/1024/480/?image=52',
-          times: 'Viewed 48 times in the last 48 hours...',
-          title: '"Pinelodge - SELF CATERING LODGE - LLANTRAISANT ...',
+          image: require('@/assets/img/room5.jpg'),
+          times: 'Viewed 48 times in the last 48 hours',
+          title: '"Pinelodge - SELF CATERING LODGE - LLANTRAISANT ',
           address: 'Cabin - 1BR - 1BA -Sleep 2',
           location: '16.4 km to Cardiff centre',
-          cancellations: ['Free Cancellation', 'xxx'],
+          cancellations: ['£1.5', '£2'],
           point: 5,
           price: 56,
           rating: 0,
@@ -170,8 +173,8 @@ export default {
       this.listData = [
         {
           image: 'https://picsum.photos/1024/480/?image=52',
-          times: 'Viewed 12 times in the last 48 hours...',
-          title: '"Pinelodge - SELF CATERING LODGE - LLANTRAISANT ...',
+          times: 'Viewed 12 times in the last 48 hours',
+          title: '"Pinelodge - SELF CATERING LODGE - LLANTRAISANT ',
           address: 'Cabin',
           location: '12.4 km to Cardiff centre',
           cancellations: ['Free Cancellation', 'xxx'],

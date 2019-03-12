@@ -1,8 +1,12 @@
 .search{
   .filter{
-    padding: 60px 15px 60px 15px;
+    padding: 60px 15px;
     background: url('~@/assets/img/bg.jpg') no-repeat center center;
     background-size: cover;
+
+    @media (min-width: 992px) {
+      padding: 200px 15px;
+    }
   }
 
   .filter-form {
